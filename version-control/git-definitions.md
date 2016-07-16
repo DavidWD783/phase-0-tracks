@@ -10,3 +10,4 @@
 * A commit is when work on a branch is merged with the master branch.  A good commit message will have some relevant details of the work that was done on the added branch so that others can see and understand the work after the commit.
 * What is a merge conflict?
 * A merge conflict comes up when two or more people all make changes/commits to the same line of code in the master branch on their own working branches.  Git does not know which change or version to go with so it sends an error message (usually with >>>>>>> all over the place!) and then the team decides to choose one of the versions or delete all versions that were committed.
+* **Extra Words**
