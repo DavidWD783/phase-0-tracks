@@ -27,3 +27,14 @@ border. */
 section#contact-info p:last-of-type {
   border-right: none;
 }
+
+/* Practice for session
+p.paragraph {
+  display: none;
+}
+
+h2.practice:hover + p.paragraph {
+display: block;
+}
+
+*/
