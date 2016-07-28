@@ -12,13 +12,25 @@ cite {
 #external-links ul {
   list-style-type: none;
   padding-left: 0px;
+  max-width: 20%;
+  min-width: 15%;
+  display: block;
+  vertical-align: text-top;
+  float: left;
+  border: 1px solid black;
 }
 
 /* you're welcome to edit the
-image, figure, and figcaption CSS if you'd like, 
+image, figure, and figcaption CSS if you'd like,
 but it's optional! */
 img {
   width: 100%;
+}
+
+@media screen and (max-width: 250px) {
+  img {
+    max-width: 40%;
+  }
 }
 
 figure {
@@ -30,3 +42,32 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+
+body {
+ max-width: 960px;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+main {
+  width: 756px;
+  display: inline-block;
+  vertical-align: text-top;
+  border: 1px solid black;
+}
+
+.list {
+  max-width: 30%;
+}
+
+@media screen and (max-width: 350px) {
+  .list {
+    max-width: 15%;
+  }
+}
+
+/* @media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+} */
