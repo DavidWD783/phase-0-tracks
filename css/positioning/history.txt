@@ -1,0 +1,91 @@
+502  cd devbootcamp
+  503  ls
+  504  cd phase-0-tracks
+  505  ls
+  506  git pull
+  507  cd css
+  508  ls
+  509  cd css-demo
+  510  ls
+  511  subl .
+  512  open index.html
+  513  open index.html
+  514  cd ..
+  515  ls
+  516  cd positioning
+  517  ls
+  518  subl .
+  519  touch index.html styles.css
+  520  ls
+  521  subl .
+  522  git add .
+  523  git commit -m "adds outline of html and stylesheet"
+  524  git branch
+  525  git push origin master
+  526  git status
+  527  git pull
+  528  git status
+  529  git merge
+  530  ls
+  531  subl .
+  532  git fetch
+  533  git merge
+  534  git status
+  535  git add .
+  536  cd ..
+  537  ls
+  538  cd css-demo
+  539  git status
+  540  git branch
+  541  git add .
+  542  git commit -m "adds to html and css"
+  543  git push origin master
+  544  git status
+  545  cd ..
+  546  ls
+  547  cd positioning
+  548  ls
+  549  git branch
+  550  git checkout -b feature
+  551  git branch
+  552  ls
+  553  subl .
+  554  open index.html
+  555  git add .
+  556  git commit -m "adds octopus/hat/glasses and css classes"
+  557  git push origin feature
+  558  git branch
+  559  git checkout master
+  560  git fetch
+  561  git merge
+  562  git status
+  563  git checkout -b second-feature
+  564  git branch
+  565  git status
+  566  git add .
+  567  git commit -m "adds css margins and text-align"
+  568  git push origin second-feature
+  569  git checkout master
+  570  git fetch
+  571  git merge
+  572  git status
+  573  ls
+  574  git branch
+  575  git checkout -b third-feature
+  576  ls
+  577  subl .
+  578  git add .
+  579  git commit -m "adds further positioning to css and inline-block"
+  580  git push origin third-feature
+  581  git checkout master
+  582  git fetch
+  583  git merge
+  584  git status
+  585  git branch
+  586  git branch --delete feature
+  587  git branch --delete second-feature
+  588  git branch --delete third-feature
+  589  git branch
+  590  git status
+  591  ls
+  592  history
