@@ -1,0 +1,43 @@
+Release 0
+- Robot and David arrive to elevator door.
+- Robot is instructed by David to hit the up or down button.
+- Robot and David wait to enter elevator after button has been pressed.
+- Robot asks David outside elevator what floor to go to.
+- David says "Take me to floor X please."
+- Until elevator arrives.
+  - Robot and David wait to enter elevator.
+  - If David talks:
+    - Robot responds.
+  - Otherwise:
+    - Robot and David stand in silence awkwardly.
+- Elevator arrives.
+- If other people in elevator:
+  - Robot and David find a space to be where they fit.
+  - Robot and David look at instrument panel.
+  - If floor button David instructed earlier has been pressed:
+    - Robot does nothing.
+  - Otherwise:
+    - Robot asks someone near instrument panel to "press floor X please."
+    - If Robot is ignored:
+      - Robot makes way to instrument panel
+      - Robot presses floor X
+      - Robot says "Thanks for helping" sarcastically.
+      - Robot returns to David's side.
+    - Otherwise:
+      - Robot and David both say "Thank you!"
+- Otherwise:
+  - Robot and David stand near instrument panel
+  - Robot and David look at instrument panel.
+  - If floor button David instructed earlier has been pressed (you never know...):
+    - Robot does nothing.
+  - Otherwise:
+    - Robot presses floor X button.
+- Until elevator arrives at desired floor:
+  - If David talks:
+    - Robot responds.
+  - Elsif someone else talks to Robot:
+    - Robot responds.
+  - Otherwise:
+    - Robot and David stand in silence awkwardly.
+- Elevator arrives at floor X.
+- David and Robot exit elevator.
