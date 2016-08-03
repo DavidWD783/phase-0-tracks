@@ -1,4 +1,10 @@
 # Interview with the Vampire
+# Add in loop for Release 3
+puts "How many employees to process?"
+num_employees = gets.chomp
+num_employees = num_employees.to_i
+counter = 1
+while counter < num_employees
 # Ask alleged their name.
 puts "What is your name?"
 name = gets.chomp
@@ -46,12 +52,17 @@ if (age_true) && (garlic_bread || health_insurance)
     puts "Definitely a vampire."
   else
   puts "#{name}: Probably not a vampire."
+  counter += 1
 end
 elsif (!age_true) && (!garlic_bread || !health_insurance)
   puts "#{name}: Probably a vampire."
+  counter += 1
 elsif (!age_true) && (!garlic_bread && !health_insurance)
   puts "#{name}: Almost certainly a vampire."
+  counter += 1
 else
-  puts "Results inconclusive..."
+  puts "#{name}: Results inconclusive..."
+  counter += 1
 end
 # End Release 2
+end
