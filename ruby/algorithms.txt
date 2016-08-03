@@ -41,3 +41,67 @@ Release 0
     - Robot and David stand in silence awkwardly.
 - Elevator arrives at floor X.
 - David and Robot exit elevator.
+
+Release 1 - Making coffee
+- If coffeemaker is clean and ready:
+  - Walk to cupboard
+  - Open cupboard
+  - If clean coffee mug:
+    - Grab mug
+    - Walk to coffee maker
+    - Place mug under coffee/water spout.
+  - Otherwise:
+    - Be frustrated for 5 seconds.
+    - Open dishwasher
+    - Extract coffee mug
+    - Turn on hot water
+    - Squirt dish soap into sponge
+    - Dash in water
+    - Until coffee mug is now clean:
+      - Scrub coffee mug
+      - Rinse clean.
+  - Walk to coffee maker
+  - Place mug under coffee/water spout.
+  - If water in Brita filter:
+    - Pour water in coffeemaker to desired line.
+  - Otherwise:
+    - Pour tap water into Brita filter.
+    - Pour water in coffeemaker to desired line.
+    - Walk to fridge.
+    - Until coffee grounds are in coffee filter to desired line:
+      - Pour coffee grounds into coffee filter.
+  - Plug in coffee maker.
+  - Turn on coffee maker.
+- Otherwise:
+  - Rinse reusable coffee filter in hot water.
+  - Place coffee filter back in coffee maker.
+  - If water in Brita filter:
+    - Pour water in coffeemaker to desired line.
+  - Otherwise:
+    - Pour tap water into Brita filter.
+    - Pour water in coffeemaker to desired line.
+  - Walk to fridge.
+  - Until coffee grounds are in coffee filter to desired line:
+    - Pour coffee grounds into coffee filter.
+  - Walk to cupboard
+  - Open cupboard
+  - If clean coffee mug:
+    - Grab mug
+    - Walk to coffee maker
+    - Place mug under coffee/water spout.
+  - Otherwise:
+    - Be frustrated for 5 seconds.
+    - Open dishwasher
+    - Extract coffee mug
+    - Turn on hot water
+    - Squirt dish soap into sponge
+    - Dash in water
+    - Until coffee mug is now clean:
+      - Scrub coffee mug
+      - Rinse clean.
+    - Walk to coffee maker
+    - Place mug under coffee/water spout.
+  - Plug in coffee maker.
+  - Turn on coffee maker.
+- Enjoy coffee!
+
