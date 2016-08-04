@@ -3,7 +3,7 @@
 puts "How many employees to process?"
 num_employees = gets.chomp
 num_employees = num_employees.to_i
-counter = 1
+counter = 0
 while counter < num_employees
 # Ask alleged their name.
 puts "What is your name?"
@@ -13,12 +13,10 @@ name = gets.chomp
 puts "What is your age?"
 age = gets.chomp
 age = age.to_i
-p age
 
 puts "  What is your year of birth?"
 birth_year = gets.chomp
 birth_year = birth_year.to_i
-p birth_year
 
 if age = birth_year
   age_true = true
@@ -49,11 +47,11 @@ end
 
 if (age_true) && (garlic_bread || health_insurance)
   if name == ("Drake Cula" || "Tu Fang")
-    puts "Definitely a vampire."
+    puts "#{name}: Definitely a vampire!"
   else
-  puts "#{name}: Probably not a vampire."
+    puts "Probably not a vampire."
+  end
   counter += 1
-end
 elsif (!age_true) && (!garlic_bread || !health_insurance)
   puts "#{name}: Probably a vampire."
   counter += 1
