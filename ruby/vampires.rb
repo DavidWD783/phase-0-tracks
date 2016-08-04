@@ -299,3 +299,4 @@ vamps("Kate", 10, 1900, "y", "n") #Probably
 vamps("Randy", 10, 1900, "n", "n") #Almost certainly
 counter += num_employees
 end
+puts "Actually, never mind!  What do all these questions have to do with anything?  Let's all be friends."
