@@ -259,7 +259,7 @@ until loop == "yes"
     break
   else
     sunshine = false
-end
+  end
 puts "Finished?  (yes/no)"
 loop = gets.chomp
 if loop == "yes"
