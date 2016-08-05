@@ -2,7 +2,7 @@
 #Contains if/elsif/else with loop, case with loop, method for taking multiple names at once with case in method.
 
 =begin # Interview with the Vampire
-# Add in loop for multipe employees using if/elsif/else (lines 6-72) and gets.chomp for variables
+# Add in loop for multiple employees using if/elsif/else (lines 6-72) and gets.chomp for variables
 puts "How many employees to process?"
 num_employees = gets.chomp
 num_employees = num_employees.to_i
@@ -209,9 +209,10 @@ end
 =end
 
 #Release 4 Start (copy/paste from repl.it lines 211-304)
-#Case with Method(Method captures name/age/birth/garlic/health and places boolean on each instead of #using gets.chomp); Case pits each possible vampire in vamps method against each possible case Vampire.
+#Case with Method (Method captures name/age/birth/age_true/garlic/health and places boolean on each instead of using gets.chomp); Case pits each possible vampire in vamps method against each possible case of Vampire to give output statement; allergy test added later needs to be typed in for each vamps entry as opposed to method entries done at one time.
 
 puts "How many employees to process?"
+# 7 employees were tested using a method (see vamps method below ) so type 7 here; the method can be changed for one that has a variable number of employees to test like used in an earlier release.
 num_employees = gets.chomp
 num_employees = num_employees.to_i
 counter = 0
@@ -219,6 +220,7 @@ counter = 0
 while counter < num_employees
 # Instead of asking for variables, give in a method and define counter to be number of vamps.
 # Print all variables with label to check boolean value
+
 def vamps(name, age, birth_year, garlic_bread, health_insurance)
   p name
   age = age.to_i
@@ -247,8 +249,7 @@ def vamps(name, age, birth_year, garlic_bread, health_insurance)
   end
   p "health_insurance: #{health_insurance}"
 
-# Add loop for allergies, exit at "sunshine or yes"
-loop == "no"
+# Add loop for allergies, break at "yes" and break at "sunshine"
 until loop == "yes"
   puts "Please list your allergies.  Type enter after each."
   allergy = gets.chomp
@@ -278,7 +279,7 @@ end
 # sunshine
 
 vampire = case
-# Add allergy case
+# Add allergy case "sunshine"
   when sunshine; "#{name}: Probably a vampire"
   when name == "Drake Cula"; "#{name}: Definitely a vampire."
   when name == "Tu Fang"; "#{name}: Definitely a vampire."
