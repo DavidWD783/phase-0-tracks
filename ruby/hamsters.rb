@@ -28,3 +28,10 @@ if age.empty?
 else
   age = age.to_f
 end
+
+#Hamster Review
+puts "It's nice to meet #{hname}!"
+puts "#{volume} is a nice volume."
+puts "Your hamster has #{color} fur."
+puts "You stated to adopt was a good idea: #{adopt}."
+puts "#{hname} is #{age} years old."
