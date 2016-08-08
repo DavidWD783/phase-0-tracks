@@ -1,0 +1,36 @@
+#Variable
+1. A variable is something assigned in Ruby that can be called on to give the value(integer, boolean, string) that was stored to a method, class, etc...  The name of the variable is on the left before an = followed by what is being assigned for the variable.  To call a variable later, use the variable name and not what it was assigned as that has been stored.  A programmer might use a variable to re-use a certain stored value/boolean/string without having to use the stored value/boolean/string explicitly.
+2.  Ruby will read the full_name variable from right to left; it finds the stored last_name variable, assigns it, then it finds the stored first_name variable and assigns it.  full_name should print "AbrahamLincoln" without any spaces.
+
+#Data Types
+ - String: the name assigned to text in ruby.  Ex:  str = "string", the text "string" is assigned to the variable str; when str is called it will print "string".
+ - Integer: positive and negative numbers not including decimals.  Ex: -6/6 #prints -1  Ex: 6/5 #prints 1 (clips the decimal off and counts only whole number of divisions possible).
+ - Float: positive and negative decimal numbers.  Ex: 6/5.5 #prints 1.090909..
+ - Nil: the absence of a value/boolean/string for for a variable or statement; is a class in ruby. Ex: name = puts "David", p name #prints nil as name was not set as a variable but a puts statement which has no value/boolean/string.
+ - Boolean: name given in ruby to true/false values and statements.  Ex: 1 == 1 #prints true which is a boolean.
+
+ #Algorithms
+ 4.  An algorithm is the name given to the set of directions and processes used to solve a problem.  In programming, an algorithm is the set of variables, methods, classes, etc... that help to solve a given problem; the algorithm in cludes a specific order in which steps must be taken to solve the problem.
+ 5. Two common algorithm categories are sorting/searching and lists/arrays/stack.
+
+ #Methods
+ 6.  A method is like a function in Ruby.  It is initialized using def method_name and within the method can go a wide array of variables, statements, other defined methods, cases, etc... that are necessary to use within the method being asked to solve a problem.  A programmer can use a method to set a process for finding the answer to a problem in Ruby and then call on the method through the program as they see fit.  If the process is something that will be repeated a method can be used to collect that process and call it over and over.
+ 7.
+ - Return Value: the value/boolean/string that is the result of using a method.
+ - Side Effect: when variables are used in method and then changed, they can pass through the method and alter the sate of that method and any others that use the method/variable.  This is most problematic for global variables that can be used across a programs various methods.  Each time it is used it can be changed which causes a side effect.
+ - Parameter: A parameter in a method is something that can be set in a method when it is initialized to capture multiple arguments.  A parameter allows a method that was defined using one argument and a parameter will always require the one argument but the parameter lets it call on multiple arguments at the end of the method.
+ - Argument: When a method is initialized, it can be set to accept certain variables or arguments.  Those variables/arguments need to be called in the method at the end in order for it to properly run.  def method_name(argment_one, argument_two).
+ Implicit Return: This is the value/boolean/string that is returned in code from the last line of code.  It is the return value of the last expression evaluated in code.
+ 8.  Global Scope: Variables set as global can be used in any method throughout a program as opposed to local variables that can only be used in each local method.  Methods can also be accessed globally in other methods in code.
+ Method Scope: data/variables declared inside a method can only be used and accessed inside that method; they are not available outside of it or in any other method.
+ -If you are going to re-use a variable and re-set it's value throughout your program you should set it to global scope (using $variable_name).  If you only want access to that variable or data then you can leave the name alone and keep it local within your method.
+
+ #Control Flow
+ 9. Control Flow: This is the order that a program will execute methods, print statements, and evaluate loops, etc...  Some things that change the Control Flow in Ruby are loops and iterators along with return/break/next.  A programmer can use this to change the order that things happen within a program; an example is using a loop to iterate through a string/array until the desired outcome happens.  This changes the flow of control in the program and gives that loop control until something happens.
+ 10.
+ - Loop: changes the control flow in ruby to run while something is true or until something that is not true yet happens.  Can be used to make changes to a variable/string/boolean's state.
+ - if: a statement that can be used to test 'if' something is true or not or whether it has the intended value/string.
+ - else: the final statement in an if/else loop that captures all cases not stated by if and elsif's.  The last line of an if/else loop before it is ended.
+ - elsif: alternative statements in an if/else loop that are given priority for checking before exiting the loop.  The same as an if but not declared first and usually in the order of decreasing importance/magnitude.
+ - while: a statement used to check a variables' value while some initial statement declared is true.  Often a counter is set against a while loop to declare that the loop happens while the counter is <, <=, >, >=, =, == compared to something in the loop.
+ - until: a statement used to check a variables' value until some initial statement declared is false.  Often a counter is set against an until loop to declare that the loop happens until the counter is <, <=, >, >=, =, == compared to something in the loop.
