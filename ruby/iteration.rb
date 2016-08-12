@@ -62,3 +62,29 @@ p hash_alpha_index
 hash_alpha_index.select! { |letter, index| index > 1 }
 puts "Has after:"
 p hash_alpha_index
+
+# find method that filters through array and finds a certain element
+arr_filter = [1, 2, 300, 4000, 500]
+puts "Has before:"
+p arr_filter
+arr_filter.reject { |number| number < 299 }
+puts "Has after:"
+p arr_filter
+
+hash_alphabet_index = {a: 0, b: 1, c: 2, d: 3}
+puts "Has before:"
+p hash_alphabet_index
+hash_alphabet_index.reject! { |char, index| char.to_s > "c" }
+puts "Has after:"
+p hash_alphabet_index
+
+#
+num = [1, 2, 3, 4, 5]
+num.delete_if do |number|
+  index = 0
+  until index == 3
+  number == 2
+  index += 1
+  end
+end
+p num
