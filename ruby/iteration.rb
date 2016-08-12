@@ -87,3 +87,12 @@ array_to_nine.delete_if {|num| num < 7 if num < 3 }
 
 puts "Array after:"
 p array_to_nine
+
+last_hash = { "a" => 1, "b" => 2, c: 3, "d" => 4}
+puts "Hash before:"
+p last_hash
+
+last_hash.delete_if { |key, value| value.respond_to?(:i) if value < 2 }
+
+puts "Hash after:"
+p last_hash
