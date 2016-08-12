@@ -1,14 +1,18 @@
 #Release 0
 #Method that takes a spy's real name
-def spy_alias
+def spy_alias  #try first name first
   puts "Hello spy."
   puts "Please type your first name, then enter."
   first_name = gets.chomp.downcase
+  first_array = [first_name]
+  first = consonant_changer(vowel_changer(first_array))
   puts "Please type your last name, then enter."
   last_name = gets.chomp.downcase
-  #puts "Thank you."
-  full_name = [first_name, last_name]
-  full_name
+  last_array = [last_name]
+  last = consonant_changer(vowel_changer(last_array))
+  full_name = [first, last]
+  true_full = name_swap(full_name)
+  puts "Secret Agent Name: " + true_full[0] + " " + true_full[1]
 end
 #spy_alias
 
@@ -17,15 +21,16 @@ def name_swap(name)
   name.reverse!
   name
 end
-#name_swap(spy_alias)
+#name_swap(name)
 
 #Change all vowels to the next vowel
 #iterate through each array item
 #if item is a vowel, change to next vowel
 def vowel_changer(name)
   vowel_guide = ["a", "e", "i", "o", "u"]
-  name.map! do |names|
+  name.each do |names|
     name = names.split('')
+    name
     name.map! do |char|
       index = 0
       while index < vowel_guide.length
@@ -39,41 +44,37 @@ def vowel_changer(name)
         char
         index += 1
       end
+
       end
       char
     end
     name
   end
+  name
 end
-#vowel_changer(name_swap(spy_alias))
+#vowel_changer(name)
 
 #Change all consonants to the next consonant
-
 def consonant_changer(name)
   consonant_guide = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
-  name = [name[0].join(''), name[1].join('')]
-  p name
-  name.map! do |names|
-    name = names.split('')
     name.map! do |chars|
-      index = 0
-      while index < consonant_guide.length
-      if chars == consonant_guide[index]
-        chars = consonant_guide[index += 1]
-        index += 1
+      counter = 0
+      while counter < consonant_guide.length
+      if chars == consonant_guide[counter]
+        chars = consonant_guide[counter += 1]
+        counter += 1
       elsif chars == "z"
         chars = "b"
-        index += 1
+        counter += 1
       else
         chars
-        index += 1
+        counter += 1
       end
       end
       chars
     end
     name
-  end
-  p name
-  #p name[1].join('').capitalize! + " " + name[0].join('').capitalize!
+  name.join('').capitalize!
 end
-consonant_changer(vowel_changer(name_swap(spy_alias)))
+#consonant_changer(name)
+spy_alias
