@@ -42,49 +42,48 @@ puts "After delete_if:"
 p arr
 
 hash = {Christian: 25, David: 33, Mary: 70, Bob: 49}
-puts "Has before:"
+puts "Hash before:"
 p hash
 hash.delete_if { |name, age| age > 50 }
-puts "Has after:"
+puts "Hash after:"
 p hash
 
 # filters data for only items that do satisfy
 arr_alphabet = ["a", "b", "c", "C"]
-puts "Has before:"
+puts "array before:"
 p arr_alphabet
 arr_alphabet.keep_if { |char| char == "c" }
-puts "Has after:"
+puts "array after:"
 p arr_alphabet
 
 hash_alpha_index = {a: 0, b: 1, c: 2, d: 3}
-puts "Has before:"
+puts "Hash before:"
 p hash_alpha_index
 hash_alpha_index.select! { |letter, index| index > 1 }
-puts "Has after:"
+puts "Hash after:"
 p hash_alpha_index
 
 # find method that filters through array and finds a certain element
 arr_filter = [1, 2, 300, 4000, 500]
-puts "Has before:"
+puts "array before:"
 p arr_filter
 arr_filter.reject { |number| number < 299 }
-puts "Has after:"
+puts "array after:"
 p arr_filter
 
 hash_alphabet_index = {a: 0, b: 1, c: 2, d: 3}
-puts "Has before:"
+puts "Hash before:"
 p hash_alphabet_index
 hash_alphabet_index.reject! { |char, index| char.to_s > "c" }
-puts "Has after:"
+puts "Hash after:"
 p hash_alphabet_index
 
-#
-num = [1, 2, 3, 4, 5]
-num.delete_if do |number|
-  index = 0
-  until index == 3
-  number == 2
-  index += 1
-  end
-end
-p num
+# remove items from a array until the condition in the block evaluates to false
+array_to_nine = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+puts "Array before:"
+p array_to_nine
+
+array_to_nine.delete_if {|num| num < 7 if num < 3 }
+
+puts "Array after:"
+p array_to_nine
