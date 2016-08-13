@@ -77,4 +77,15 @@ def consonant_changer(name)
   name.join('').capitalize!
 end
 #consonant_changer(name)
-spy_alias
+#spy_alias
+
+#method for repeating spy_alias until 'quit'
+def spy_repeater
+  answer = true
+  until answer == "quit"
+    spy_alias
+    puts "If you are done, please type 'quit' and hit enter.\n\If you would like to enter another spy name, please hit 'enter'."
+    answer = gets.chomp.downcase
+  end
+end
+spy_repeater
