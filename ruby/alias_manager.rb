@@ -1,31 +1,58 @@
 #Method that takes a spy's real name
 def spy_alias  #try first name first
   puts "Hello spy."
+  #Ask user for first name and store it
   puts "Please type your first name, then enter."
   first_name = gets.chomp.downcase
+
+  #Create array to work with characters of first_name
   first_array = [first_name]
+
+  #use consonant and vowel changer methods on first name array
   first = consonant_changer(vowel_changer(first_array))
+
+  #Ask user for last name and store it
   puts "Please type your last name, then enter."
   last_name = gets.chomp.downcase
+
+  #Create array to work with characters of last name
   last_array = [last_name]
+
+  #use consonant and vowel changer methods on last name array
   last = consonant_changer(vowel_changer(last_array))
+
+  #Create full name array
   full_name = [first, last]
 
-  #insert spy name storage data structure
+  #Use name swap method
+  alias_name = name_swap(full_name)
 
-  true_full = name_swap(full_name)
-  agent_alias = puts "Secret Agent Name: " + true_full[0] + " " + true_full[1]
+  #Print secret agent name
+  secret_name = puts "Secret Agent Name: " + alias_name[0] + " " + alias_name[1]
+
+  real_entry = [first_name.capitalize, last_name.capitalize]
+  index = 0
+  real_entry.map do |inputs|
+    arr = Array.new
+    arr[(index)] = inputs
+    p arr
+    index += 1
+  end
+
+  alias_entry = [alias_name[0], alias_name[1]]
+
+
 end
 #spy_alias
 
-#Swaps first and last name
+#Method that swaps first and last name
 def name_swap(name)
   name.reverse!
   name
 end
 #name_swap(name)
 
-#Change all vowels to the next vowel
+#Method to change all vowels to the next vowel
 #iterate through each array item
 #if item is a vowel, change to next vowel
 def vowel_changer(name)
@@ -56,7 +83,7 @@ def vowel_changer(name)
 end
 #vowel_changer(name)
 
-#Change all consonants to the next consonant
+#Method to change all consonants to the next consonant
 def consonant_changer(name)
   consonant_guide = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
     name.map! do |chars|
@@ -79,7 +106,6 @@ def consonant_changer(name)
   name.join('').capitalize!
 end
 #consonant_changer(name)
-#spy_alias
 
 #method for repeating spy_alias until 'quit'
 def spy_repeater
@@ -93,5 +119,9 @@ end
 spy_repeater
 
 #data structure to store entries
-spy_array = []
-index = 0
+def spy_array(x)
+  #spy_repeater
+  p real_entry
+  p alias_entry
+end
+#spy_array(spy_repeater)
