@@ -1,4 +1,3 @@
-#Release 0
 #Method that takes a spy's real name
 def spy_alias  #try first name first
   puts "Hello spy."
@@ -11,8 +10,11 @@ def spy_alias  #try first name first
   last_array = [last_name]
   last = consonant_changer(vowel_changer(last_array))
   full_name = [first, last]
+
+  #insert spy name storage data structure
+
   true_full = name_swap(full_name)
-  puts "Secret Agent Name: " + true_full[0] + " " + true_full[1]
+  agent_alias = puts "Secret Agent Name: " + true_full[0] + " " + true_full[1]
 end
 #spy_alias
 
@@ -89,3 +91,7 @@ def spy_repeater
   end
 end
 spy_repeater
+
+#data structure to store entries
+spy_array = []
+index = 0
