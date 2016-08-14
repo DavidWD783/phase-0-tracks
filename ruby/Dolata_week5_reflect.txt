@@ -1,0 +1,22 @@
+#Data Structures
+1. Data structures are useful in programming as they can be setup to store lots of user input and data (strings, integers, booleans) and then can be manipulated and updated using built in ruby methods whether the structure is an array or a hash.
+
+#Arrays
+2.  An array is a set of information (numbers, strings, booleans) that can be updated using built in methods and called upon using the proper index call (arr[0] will call for the first member of arr).  An array has built in methods that can be called on using syntax like arr.length or arr.reverse! that can either temporarily change the layout of the array or permanently change it (using the bang operator, !).
+
+3.  An example of a data set that an array is suited for would be the set of a basketball team's players' heights (height = [72, 78, 70, 80, 74]) and a class' answer for a true or false question on a test for each student (test_answer = [true, false, true, true, false, false]); they are best suited when looking at the description of one thing OR how many things described one thing in particular.
+
+#Hashes
+4.  A hash is a data structure that establishes pairs between it's entries (key, value) and often uses symbols in place of the key in the pair which help programs take up less data or memory in computer programs.  Hashes also have built in methods that can manipulate them like arrays.  Hash syntax is hash = {:symbol_key => "value", another_symbol: 5, "key_not_symbol" => true} and the user can call on either the key, the value, or both members of each pair in a hash or all pairs at once using built in methods.
+
+5.  An example of a data set in a hash would be when you want to know all of the student responses to a particular question on a test grouped by student/score pairs (score_hash = {David: 92, "Sarah" => 100, "Kate" => 59}) where David might be used as a symbol repeatedly and Sarah/Kate will not.  Another example could be a hash that tracks if a person was on track with their daily diet calorie count at a particular time (calorie_hash = {"Amy" => 1200, "Mike" => 2500, "Sam" => 2000}).  In each case, the user can access any or all data from the hash depending on which built in method they are planning on using.
+
+#Iteration
+6.  Iteration is useful to manipulate a string, array, or hash by calling on each member and performing something on it that alters it from before repeatedly again and again.  If you have a large set of data and want to change each piece in a similar way repeatedly, iterating over that set as a hash or array can be accomplished using some method.
+
+7.  An example task that requires iteration would be an algorithm for the number of slices I have to make in a tomato before it is all cut up.  I set up the task of slicing and then repeatedly do it until there are no more slices to be made.
+
+#Blocks
+8.  A block is a way of grouping statements or methods that you wish to perform on a string, array, or hash repeatedly using iteration.  Example syntax is array.each { |index| puts "This number, #{index}, is array[#{index}]." }  The method(s) used in a block can be passed into methods in a program and the program will evaluate them using that block again.
+
+9.  A block parameter is passed into a block if the thing the block is working on has items inside of it (a hash or array has items or elements in side and will take block parameters) and you want to iterate over each item.  The name of the parameter is defined by the programmer and it should be some symbol or word that defines the elements that are being manipulated.  A block can be called to simply print a statement or do some destructive change (with a bang !) on each element depending on what the program requires.
