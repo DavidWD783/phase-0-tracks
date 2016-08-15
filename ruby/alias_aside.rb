@@ -3,19 +3,22 @@ def array_counter
   counter = 1
   blank_array = []
 
+  input = "initialized"
+  until input == "quit"
+
 #Prompt user for first name
   puts "Hello spy."
   puts "Please type your first name, then hit 'enter'."
-  real_first_name = gets.chomp.downcase
-  real_first_name
+  first_name = gets.chomp
+  real_first_name = first_name.downcase
 
 #Prompt user for last name
   puts "Please type your last name, then hit 'enter'."
-  real_last_name = gets.chomp.downcase
-  real_last_name
+  last_name = gets.chomp
+  real_last_name = last_name.downcase
 
 #Store first and last names
-blank_array.push("#{real_first_name} #{real_last_name}")
+#blank_array.push("#{real_first_name} {real_last_name}")
 
 #Method for putting first and last name in arrays
   real_name_array = [real_first_name, real_last_name]
@@ -78,9 +81,21 @@ blank_array.push("#{real_first_name} #{real_last_name}")
     name_join
   end
 alias_name_array
-blank_array.push("#{alias_name_array}")
-counter += 1
-p blank_array
-p counter
+blank_array.push("#{alias_name_array[0]} #{alias_name_array[1]} is actually #{first_name} #{last_name}")
+#blank_array.push("#{alias_name_array[0]} #{alias_name_array[1]}")
+puts "Alias name: #{alias_name_array[0]} #{alias_name_array[1]}"
+#for end of until loop
+puts "If you are finished, type 'quit' and hit 'enter'."
+    puts "If you would like to enter another name, hit 'enter'."
+  input = gets.chomp.downcase
+  if input == "quit"
+    break
+  else
+    input
+  end
+end
+blank_array.each do |item|
+  p item
+end
 end
 array_counter
