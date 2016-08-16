@@ -1,5 +1,8 @@
 #add Santa class
 class Santa
+  attr_reader :age, :ethnicity
+  attr_accessor :gender
+
   #create an initialize method
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance ..."
@@ -32,20 +35,6 @@ class Santa
     reindeer_ranking.compact!
     reindeer_ranking.push(reindeer_name)
     reindeer_ranking
-  end
-
-  #setter method for @gender attribute
-  def gender=(new_gender)
-    @gender = new_gender
-  end
-
-  #getter methods for age and ethnicity
-  def age
-    @age
-  end
-
-  def ethnicity
-    @ethnicity
   end
 end
 #add parameters for calling Santa class and methods
