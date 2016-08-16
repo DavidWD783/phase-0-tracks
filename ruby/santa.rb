@@ -41,21 +41,36 @@ end
 santa = Santa.new("male", "Caucasian")
 santa.speak
 santa.eat_milk_and_cookes("Oreo")
-p santa.celebrate_birthday(59)
-p santa.get_mad_at("Vixen")
-p santa.gender=("female")
-p santa.age
-p santa.ethnicity
+santa.celebrate_birthday(59)
+santa.get_mad_at("Vixen")
+santa.gender=("female")
+santa.age
+santa.ethnicity
 
 
 #create santas array
 santas = []
 #set parameters for genders/ethnicities
 santa_genders = ["gender-neutral", "male", "female", "trans-gender", "gender-fluid"]
-santa_ethnicities = ["Caucasian", "African-American", "Japanese", "Nordic"]
+santa_ethnicities = ["Caucasian", "African-American", "Japanese", "Nordic", "Czech"]
+santa_names = ["David", "Chris", "Mike", "Emily", "Sarah", "Kathy"]
+
 #iterate over santas array calling new instances
+=begin
 santa_genders.length.times do |x|
   puts "Creating a new santa with gender: #{santa_genders[x]} and ethnicity: #{santa_ethnicities[x]}"
   puts "This is santa number: #{x + 1}."
   santas << Santa.new(santa_genders[x], santa_ethnicities[x])
+end
+=end
+
+#create loop for release 4
+15.times do |instance|
+  puts "This is Santa number #{instance + 1}."
+  santa = santa_names.sample
+  puts "This Santa is named #{santa}."
+  p santa = Santa.new(santa_genders.sample, santa_ethnicities.sample)
+  santa.celebrate_birthday(0 + rand(140))
+  #santa.speak
+  #santa.eat_milk_and_cookes("Oreo")
 end
