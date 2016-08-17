@@ -108,8 +108,19 @@ list = gets.chomp
 ### DRIVER CODE ###
 #p list = "apples oranges mangoes bread"
 list_hash = create_list(list)
+=begin
 add_item(list_hash)
 update_list(list_hash)
 remove_item(list_hash)
 last_call(list_hash)
+=end
+last_call(remove_item(update_list(add_item(list_hash))))
 print_list(list_hash)
+
+#Reflection#
+  #What I learned about pseudocode from this challenge is the power it has to drive thinking and order into a program.
+  #The trade-offs between arrays and hashes are more about comfort for me than functionality or ease of access.  Sometimes I like referring to indexes and place more than I do the end of a line like in a hash.  I like an array to store lots of data about one particular thing; I like a hash to store a line of thinking where data stretches far and long without being quantified too much.
+  #A method returns the the action that was taken on the input of the method OR some methods return a puts with no returned data.
+  #A method can take numbers, strings, or booleans as arguments along with hashes, arrays, and other methods that call on other parameters (methods can be deeply nested within other methods).
+  #Info can be passed between methods by calling methods upon previous methods OR by passing in the return of the previous method that becomes the argument of the next method.
+  #I liked this challenge for using method returns and method calls upon other methods, I was confused but feel better now.
