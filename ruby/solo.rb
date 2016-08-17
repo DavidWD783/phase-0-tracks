@@ -48,7 +48,8 @@ end
 bike = Bike_Builder.new(33)
 
 #User Interface
-array_of_bikes = []
+#create empty hash
+hash_of_bikes = {}
 #allow user to create many instances of bikes
 puts "Hello.  How many bicycles would you like to build today?"
 user_num_bikes = gets.chomp.to_i
@@ -57,6 +58,8 @@ user_num_bikes = gets.chomp.to_i
     user_num_bikes = gets.chomp.to_i
   end
 puts "Thank you!"
+
+#Ask user for age
 puts "Please type your age, followed by 'enter'."
 user_age = gets.chomp.to_i
 until user_age.to_i != 0
@@ -65,11 +68,11 @@ until user_age.to_i != 0
 end
 puts "Thank you!"
 
-user_num_bikes.times do |build_bikes|
-  build_bikes = Bike_Builder.new(user_age)
-  array_of_bikes.push(build_bikes)
+#Create loop and
+user_num_bikes.times do |bikes|
+  hash_of_bikes[Bike_Builder.new(user_age).to_sym]
 end
-p array_of_bikes
+p hash_of_bikes
 
 #prompt user for each attribute
   #store class instances in an array
