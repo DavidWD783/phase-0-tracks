@@ -1,9 +1,9 @@
 # Method to create a list
 #list = "apples oranges mangoes bread"
-def create_list(list)
+def create_list(list_string)
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
   #split string on spaces
-  list_array = list.split(' ')
+  list_array = list_string.split
 
   # create grocery list hash
   grocery_hash = {}
