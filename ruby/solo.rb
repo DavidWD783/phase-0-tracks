@@ -96,7 +96,6 @@ class Bike_Builder
       puts "Thank you."
     end
   end
-
 end
 
 
