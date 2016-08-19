@@ -143,13 +143,13 @@ user_num_bikes.times do |build_bikes|
 
   #call frame_size method
   bike.frame_size(user_height)
-  p array_of_bikes
+  array_of_bikes
 
   #call feature_to_change method
   bike.change_any_feature
 
-  array_of_bikes.push("#{bike.handlebar}")
+  #final array print and individual item printout
   p array_of_bikes
-  puts "Bike: #{build_bikes + 1}"
-  p array_of_bikes.index("#{bike.handlebar}")
+  puts "\n\Bike: #{build_bikes + 1}\n\Handlebar Material: #{bike.handlebar}\n\Discipline: #{bike.discipline}\n\Frame Type: #{bike.frame}\n\ "
 end
+p array_of_bikes
