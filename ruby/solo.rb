@@ -1,7 +1,7 @@
 #design class Bike_Builder
 class Bike_Builder
-  attr_reader :name, :chain, :age
-  attr_accessor :wheels, :handlebar, :discipline, :frame, :height, :size
+  attr_reader :name, :chain, :age, :wheels
+  attr_accessor :handlebar, :discipline, :frame, :height, :size
   #must have at least 3 attributes(two different data types)
   def initialize(name, age)
     puts "Initialized a new instance of bicycle..."
