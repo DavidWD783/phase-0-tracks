@@ -5,10 +5,20 @@
 // declare a function, set argument to string variable
 
 // inside function, set up for loop
-  // start with i = 0; work while i < string.length; increment by 1 (i ++)
-  // select character at position 0 using string[0]
-  // add string + string[0] (note to put string[0] on the right as JS reads right to left)
-  // delete string[0] char from string
-  // return string explicitly each time using return
+  // set a temporary string to house characters of input string
+  // start with i = str.length - 1; work while i >= 0; decrement by 1 (i --)
+  // select character at position str.length - 1
+    // store in temporary string
+    // return temporary string each time
   // repeat process over loop until completed
   // call function with string "hello"
+
+function stringReverse(str) {
+  var tempString = '';
+  for (var i = str.length-1; i >= 0; i --) {
+    tempString += str[i];
+  }
+  return tempString
+}
+console.log(stringReverse("hello"))
+console.log(stringReverse("backwards"))
