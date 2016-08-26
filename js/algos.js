@@ -25,8 +25,26 @@ function stringLengthChecker(array_of_strings) {
   return string_array_storage[0];
 }
 
+//write a function that takes two objects and checks to see if the objects share at least one key-value pair.
+    //check to see if keys of objects match
+      //if they do, check to see if the values match
+        //if they do, return true
+        //otherwise, false
+      //otherwise, move to the next key
+    //return true or false based on matching pair
+function takesObjects(objOne, objTwo)
 
-// Driver Code
-stringLengthChecker(["long phrase","longest phrase","longer phrase"]) // return "longest phrase".
-stringLengthChecker(["long", "1", "super dooper  long"])
-stringLengthChecker(["one", "one", " one "])
+
+
+
+
+
+// Driver Code //
+
+//stringLengthChecker
+//stringLengthChecker(["long phrase","longest phrase","longer phrase"]) // return "longest phrase".
+//stringLengthChecker(["long", "1", "super dooper  long"])
+//stringLengthChecker(["one", "one", " one "])
+
+//takesObjects
+takesObjects({name: "Steven", age: 54}, {name: "Tamir", age: 54}) //should return true
