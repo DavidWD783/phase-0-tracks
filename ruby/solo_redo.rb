@@ -129,12 +129,12 @@ end
 
 ### DRIVER CODE ###
 #create empty array
-array_of_bikes = []
+hash_of_bikes = {}
 
-#Create loop and push instances into array
+#Create loop and push instances into hash
 user_num_bikes.times do |build_bikes|
    bike = Bike_Builder.new(user_name, user_age, user_height)
-  array_of_bikes.push(bike)
+  hash_of_bikes[bike] = "Bike: #{build_bikes + 1}"
 
   #ask about discipline for each bike
   puts "What is your preferred discipline of biking for Bike No. #{build_bikes + 1}?"
@@ -144,17 +144,13 @@ user_num_bikes.times do |build_bikes|
 
   #call frame_size method
   bike.frame_size(user_height)
-  p array_of_bikes
+  p hash_of_bikes
 
   #call feature_to_change method
   bike.change_any_feature
-
-  array_of_bikes.push("#{bike.handlebar}")
-  p array_of_bikes
-  puts "Bike: #{build_bikes + 1}"
-  p array_of_bikes.index("#{bike.handlebar}")
+  hash_of_bikes
 end
 
-array_of_bikes.each do |index|
-  p index
+hash_of_bikes.each do |attributes|
+  p attributes
 end

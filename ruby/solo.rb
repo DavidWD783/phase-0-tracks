@@ -152,4 +152,10 @@ user_num_bikes.times do |build_bikes|
   p array_of_bikes
   puts "\n\Bike: #{build_bikes + 1}\n\Handlebar Material: #{bike.handlebar}\n\Discipline: #{bike.discipline}\n\Frame Type: #{bike.frame}\n\ "
 end
-p array_of_bikes
+
+array_of_bikes.each do |bicycle|
+  #bicycle is all class attributes
+  puts "Bike: #{array_of_bikes.index(bicycle) + 1}"
+  puts "Handlebar Material: #{bicycle.handlebar}."
+  puts "Type of bike: #{bicycle.discipline}."
+end
