@@ -48,8 +48,15 @@ function takesObjects(objOne, objTwo) {
 
 // Driver Code //
 //takesObjects
-console.log(takesObjects({name: "Steven", age: 55}, {name: "Tamir", age: 55})) //true
-console.log(takesObjects({name: "Steven", age: 55}, {name: "Tamir", age: 35})) //false
-console.log(takesObjects({name: "Steven", age: 55}, {date: "Tamir", style: 35})) //false
-console.log(takesObjects({name: "Steven", age: 55}, {name: "Steven", age: 35})) //true
-console.log(takesObjects({name: "Steven", age: 55, height: 68}, {name: "Mark", age: 35})) //false
+//console.log(takesObjects({name: "Steven", age: 55}, {name: "Tamir", age: 55})) //true
+//console.log(takesObjects({name: "Steven", age: 55}, {name: "Tamir", age: 35})) //false
+//console.log(takesObjects({name: "Steven", age: 55}, {date: "Tamir", style: 35})) //false
+//console.log(takesObjects({name: "Steven", age: 55}, {name: "Steven", age: 35})) //true
+//console.log(takesObjects({name: "Steven", age: 55, height: 68}, {name: "Mark", age: 35})) //false
+
+//Write a function that takes an integer for length, and builds and returns an array of strings of the given length.
+
+//pseudocode
+//set function to take one integer argument
+  //integer value creates array with value number of words
+    //words in array vary in length from 1 to 10 letters (generate random number)
