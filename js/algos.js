@@ -25,26 +25,29 @@ function stringLengthChecker(array_of_strings) {
   return string_array_storage[0];
 }
 
+
 //write a function that takes two objects and checks to see if the objects share at least one key-value pair.
 function takesObjects(objOne, objTwo) {
   //check to see if keys of objects match
   objOne;
   objTwo;
-  for (var key in objOne && objTwo) {
+  for (var key in (objOne && objTwo)) {
     if (objOne.hasOwnProperty(key) && objTwo.hasOwnProperty(key)) {
-      for (var value in objOne[key] && objTwo[key]) {
-        if (objOne.hasOwnProperty(value) && objTwo.hasOwnProperty(value)) {
-          console.log("true");
-          return true;
-        } else {
-          console.log("false");
-          return false;
-        }
+    //console.log(key);
+    } if (objOne[key] === objTwo[key]) {
+        //console.log("true");
+        //console.log(objOne[key]);
+        //console.log(objTwo[key]);
+        return true;
+        break;
       }
-    }
+      else {
+        //console.log("false")
+        false;
+      }
   }
-//return true or false based on matching pair
 }
+//return true or false based on matching pair
 
 // Driver Code //
 
@@ -54,4 +57,7 @@ function takesObjects(objOne, objTwo) {
 //stringLengthChecker(["one", "one", " one "])
 
 //takesObjects
-takesObjects({name: "Steven", age: 54}, {name: "Tamir", age: 54}) //should return true
+console.log(takesObjects({name: "Steven", age: 55}, {name: "Tamir", age: 55})) //true
+console.log(takesObjects({name: "Steven", age: 55}, {name: "Tamir", age: 35})) //false
+takesObjects({name: "Steven", age: 55}, {date: "Tamir", style: 35}) //false
+takesObjects({name: "Steven", age: 55}, {name: "Steven", age: 35}) //true
