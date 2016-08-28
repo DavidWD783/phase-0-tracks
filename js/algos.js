@@ -52,3 +52,4 @@ console.log(takesObjects({name: "Steven", age: 55}, {name: "Tamir", age: 55})) /
 console.log(takesObjects({name: "Steven", age: 55}, {name: "Tamir", age: 35})) //false
 console.log(takesObjects({name: "Steven", age: 55}, {date: "Tamir", style: 35})) //false
 console.log(takesObjects({name: "Steven", age: 55}, {name: "Steven", age: 35})) //true
+console.log(takesObjects({name: "Steven", age: 55, height: 68}, {name: "Mark", age: 35})) //false
