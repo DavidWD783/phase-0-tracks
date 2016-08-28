@@ -21,7 +21,7 @@ function stringLengthChecker(array_of_strings) {
   }
   //return the blank array which houses the longest string
   //end loop
-  console.log(string_array_storage[0]);
+  console.log("The longest string is " + string_array_storage[0]);
   return string_array_storage[0];
 }
 
@@ -65,10 +65,16 @@ function intToArray(int) {
   var intLengthArray = new Array(int)
   //console.log(intLengthArray);
   for (var i = 0; i < int; i ++) {
-    intLengthArray[i] = possibleLetters.substr(1, Math.floor((Math.random() * 10) + 1));
+    intLengthArray[i] = possibleLetters.substr(Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1));
     console.log(intLengthArray);
   }
   return intLengthArray;
 
 }
-intToArray(3);
+//Driver Code//
+//intToArray(3);
+for (var i = 0; i < 10; i ++) {
+  var genArray = intToArray(Math.floor((Math.random() * 10) + 1));
+    console.log(genArray);
+    stringLengthChecker(genArray);
+}
