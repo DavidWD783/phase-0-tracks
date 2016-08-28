@@ -60,3 +60,15 @@ function takesObjects(objOne, objTwo) {
 //set function to take one integer argument
   //integer value creates array with value number of words
     //words in array vary in length from 1 to 10 letters (generate random number)
+function intToArray(int) {
+  var possibleLetters = "abcdefghijklmnopqrstuvwxyz"
+  var intLengthArray = new Array(int)
+  //console.log(intLengthArray);
+  for (var i = 0; i < int; i ++) {
+    intLengthArray[i] = possibleLetters.substr(1, Math.floor((Math.random() * 10) + 1));
+    console.log(intLengthArray);
+  }
+  return intLengthArray;
+
+}
+intToArray(3);
