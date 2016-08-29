@@ -69,7 +69,6 @@ function intToArray(int) {
     console.log(intLengthArray);
   }
   return intLengthArray;
-
 }
 //Driver Code//
 //intToArray(3);
