@@ -1,2 +1,2 @@
-##Screenshot for Schema
-![Schema Image for bikes db](/Users/daviddolata/desktop/bikes_db_schema.jpg "Schema Image")
+##Screenshot for Schema for Bikes DB
+![Schema](/Users/daviddolata/desktop/bikes_db_schema.jpg "Schema Image")
