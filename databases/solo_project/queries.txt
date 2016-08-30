@@ -1,0 +1,70 @@
+## 1. Display table info
+sqlite> .tables
+manufacturers  top_us_bikes
+
+sqlite> .schema
+CREATE TABLE manufacturers (id INTEGER PRIMARY KEY,
+name VARCHAR(255),
+made_in VARCHAR(255),
+market_share INTEGER);
+CREATE TABLE top_us_bikes (id INTEGER PRIMARY KEY,
+name VARCHAR(255),
+discipline VARCHAR(255),
+quality_build BOOLEAN,
+selling_price INTEGER,
+manufacturer_id INT,
+FOREIGN KEY (manufacturer_id) REFERENCES manufacturers(id));
+
+sqlite> SELECT * FROM top_us_bikes;
+1|Tarmac PRO|road|true|4500|1
+2|Trance|mountain|false|2000|2
+3|Stumpjumper FSR|mountain|true|4000|1
+4|Synapse|road|false|2500|3
+5|TCR Disc|road|true|3200|2
+6|Epic FSR|mountain|true|5500|1
+
+## 2.Update item
+sqlite> UPDATE top_us_bikes SET selling_price=6500 WHERE selling_price=4500;
+
+sqlite> .header on
+
+sqlite> SELECT * FROM top_us_bikes
+   ...> ;
+id|name|discipline|quality_build|selling_price|manufacturer_id
+1|Tarmac PRO|road|true|6500|1
+2|Trance|mountain|false|2000|2
+3|Stumpjumper FSR|mountain|true|4000|1
+4|Synapse|road|false|2500|3
+5|TCR Disc|road|true|3200|2
+6|Epic FSR|mountain|true|5500|1
+
+## 3. Display information in both tables
+sqlite> SELECT * FROM manufacturers, top_us_bikes WHERE manufacturers.id = top_us_bikes.manufacturer_id;
+id|name|made_in|market_share|id|name|discipline|quality_build|selling_price|manufacturer_id
+1|Specialized|USA|2000000000|1|Tarmac PRO|road|true|6500|1
+2|Giant|USA|1750000000|2|Trance|mountain|false|2000|2
+1|Specialized|USA|2000000000|3|Stumpjumper FSR|mountain|true|4000|1
+3|Cannondale|USA|1250000000|4|Synapse|road|false|2500|3
+2|Giant|USA|1750000000|5|TCR Disc|road|true|3200|2
+1|Specialized|USA|2000000000|6|Epic FSR|mountain|true|5500|1
+
+## 4. Display fewer columns using a query
+sqlite> SELECT top_us_bikes.name, manufacturers.name FROM top_us_bikes JOIN manufacturers ON top_us_bikes.manufacturer_id = manufacturers.id;
+name|name
+Tarmac PRO|Specialized
+Trance|Giant
+Stumpjumper FSR|Specialized
+Synapse|Cannondale
+TCR Disc|Giant
+Epic FSR|Specialized
+
+## 5. Delete an item
+sqlite> DELETE FROM top_us_bikes WHERE name="Trance";
+
+sqlite> SELECT * FROM top_us_bikes;
+id|name|discipline|quality_build|selling_price|manufacturer_id
+1|Tarmac PRO|road|true|6500|1
+3|Stumpjumper FSR|mountain|true|4000|1
+4|Synapse|road|false|2500|3
+5|TCR Disc|road|true|3200|2
+6|Epic FSR|mountain|true|5500|1
