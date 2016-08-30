@@ -68,3 +68,24 @@ id|name|discipline|quality_build|selling_price|manufacturer_id
 4|Synapse|road|false|2500|3
 5|TCR Disc|road|true|3200|2
 6|Epic FSR|mountain|true|5500|1
+
+## Release 3
+## Inner Join
+sqlite> .header on
+
+sqlite> SELECT top_us_bikes.name, top_us_bikes.selling_price, top_us_bikes.manufacturer_id, manufacturers.name FROM top_us_bikes INNER JOIN manufacturers ON top_us_bikes.manufacturer_id = manufacturers.id;
+name|selling_price|manufacturer_id|name
+Tarmac PRO|6500|1|Specialized
+Stumpjumper FSR|4000|1|Specialized
+Synapse|2500|3|Cannondale
+TCR Disc|3200|2|Giant
+Epic FSR|5500|1|Specialized
+
+##Left Outer Join
+sqlite> SELECT top_us_bikes.name, top_us_bikes.discipline, manufacturers.name FROM top_us_bikes LEFT OUTER JOIN manufacturers ON top_us_bikes.manufacturer_id = manufacturers.id;
+name|discipline|name
+Tarmac PRO|road|Specialized
+Stumpjumper FSR|mountain|Specialized
+Synapse|road|Cannondale
+TCR Disc|road|Giant
+Epic FSR|mountain|Specialized
