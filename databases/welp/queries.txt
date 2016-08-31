@@ -23,4 +23,14 @@ first_name|last_name|name|stars|comment
 Mandy|Kaling|Amir's Towing|2|OK
 
 ## Release 3 ##
+1. View table for each individual student, teacher, and class choice
+SELECT students.name, teachers.name, classes.name FROM students INNER JOIN teachers ON students.id=teachers.id INNER JOIN classes ON classes.student_id=teachers.id;
+name|name|name
+Sam|Mr. Smith|Math
+Sarah|Mrs. White|Biology
+Erica|Ms. Teacher|History
 
+2. View table for only one student, Erica
+sqlite> SELECT students.name, teachers.name, classes.name FROM students INNER JOIN teachers ON students.id=teachers.id INNER JOIN classes ON classes.student_id=teachers.id WHERE students.name="Erica";
+name|name|name
+Erica|Ms. Teacher|History
