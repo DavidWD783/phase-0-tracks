@@ -1,7 +1,7 @@
 #require sqlite3, faker, and other classes (...???)
 #Create Been_To class
   #initialize
-    #readers: name, age, email, job, birthplace, passport_active?
+    #readers: name, dates, rating, return
   #create been_to table in db
     #use string delimiter
     #pass in instance variables
@@ -21,17 +21,16 @@ class Been_To
   end
 
   ##create_been_to_table
-  create_been_to_table_cmd =  <<-SQL
-  CREATE TABLE IF NOT EXISTS been_to(
-  id INTEGER PRIMARY KEY,
-  name VARCHAR(255),
-  dates VARCHAR(255),
-  rating INTEGER,
-  return BOOLEAN
-  );
-  SQL
-  create_been_to_table_cmd
-
-
-
+  def create_been_to_table
+    create_been_to_table_cmd =  <<-SQL
+    CREATE TABLE IF NOT EXISTS been_to(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255),
+    dates VARCHAR(255),
+    rating INTEGER,
+    return BOOLEAN
+    );
+    SQL
+    create_been_to_table_cmd
+  end
 end
