@@ -12,9 +12,10 @@ require 'sqlite3'
 require 'faker'
 require_relative 'been_to'
 require_relative 'yet_to'
+require_relative 'insert'
 
 class Traveler
-  attr_reader :name, :age, :email, :job, :birthplace, :passport_active
+  attr_accessor :name, :age, :email, :job, :birthplace, :passport_active
 
   def initialize(name, age, email, job, birthplace, passport_active)
     @name = name
@@ -57,6 +58,13 @@ class Traveler
   db.execute(been_to.create_been_to_table)
   db.execute(yet_to.create_yet_to_table)
 
+  #insert into traveler table
+  db = SQLite3::Database.open('travel_report.db')
+  insert_cmd = <<-SQ
+    INSERT INTO traveler(name, age, email, job, birthplace, passport_active) VALUES (?, ?, ?, ?, ?, ?)
+    SQ
+    db.execute(insert_cmd, [@name, @age, @email, @job, @birthplace, @passport_active])
+
 end
 
 ## User Interface ##
@@ -87,5 +95,7 @@ end
 ## Driver Code ##
 #create instance of Traveler
 traveler = Traveler.new(name, age, email, job, birthplace, passport_active)
+
+#create insert instance to add items to tables
 
 
