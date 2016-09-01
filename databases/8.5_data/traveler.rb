@@ -10,10 +10,12 @@
 
 require 'sqlite3'
 require 'faker'
-#require_relative 'other classes'
+require_relative 'been_to'
+require_relative 'yet_to'
+require_relative 'insert'
 
 class Traveler
-  attr_reader :name, :age, :email, :job, :birthplace, :passport_active
+  attr_accessor :name, :age, :email, :job, :birthplace, :passport_active
 
   def initialize(name, age, email, job, birthplace, passport_active)
     @name = name
@@ -24,10 +26,16 @@ class Traveler
     @passport_active = passport_active
   end
 
-  ##create_database
+  #create_database
   db = SQLite3::Database.new('travel_report.db')
 
-  ##create_traveler_table
+  #create instance of been_to
+  been_to = Been_To.new
+
+  #create instance of yet_to
+  yet_to = Yet_To.new
+
+  #create_traveler_table
   create_table_cmd =  <<-SQL
   CREATE TABLE IF NOT EXISTS traveler(
   id INTEGER PRIMARY KEY,
@@ -43,10 +51,19 @@ class Traveler
   FOREIGN KEY (going_there_id) REFERENCES yet_to(id)
   );
   SQL
+  create_table_cmd
 
+  #create all tables
   travelers = db.execute(create_table_cmd)
-  puts travelers
-  puts travelers.inspect
+  db.execute(been_to.create_been_to_table)
+  db.execute(yet_to.create_yet_to_table)
+
+  #insert into traveler table
+  db = SQLite3::Database.open('travel_report.db')
+  insert_cmd = <<-SQ
+    INSERT INTO traveler(name, age, email, job, birthplace, passport_active) VALUES (?, ?, ?, ?, ?, ?)
+    SQ
+    db.execute(insert_cmd, [@name, @age, @email, @job, @birthplace, @passport_active])
 
 end
 
@@ -78,5 +95,7 @@ end
 ## Driver Code ##
 #create instance of Traveler
 traveler = Traveler.new(name, age, email, job, birthplace, passport_active)
+
+#create insert instance to add items to tables
 
 
