@@ -10,7 +10,7 @@
 
 require 'sqlite3'
 require 'faker'
-#require_relative 'other classes'
+require_relative 'been_to'
 
 class Traveler
   attr_reader :name, :age, :email, :job, :birthplace, :passport_active
@@ -24,29 +24,44 @@ class Traveler
     @passport_active = passport_active
   end
 
-  ##create_database
+  #create_database
   db = SQLite3::Database.new('travel_report.db')
 
-  ##create_traveler_table
-  create_table_cmd =  <<-SQL
-  CREATE TABLE IF NOT EXISTS traveler(
-  id INTEGER PRIMARY KEY,
-  name VARCHAR(255),
-  age INTEGER,
-  email VARCHAR(255),
-  job VARCHAR(255),
-  birthplace VARCHAR(255),
-  passport_active BOOLEAN,
-  been_there_id INTEGER,
-  going_there_id INTEGER,
-  FOREIGN KEY (been_there_id) REFERENCES been_to(id),
-  FOREIGN KEY (going_there_id) REFERENCES yet_to(id)
-  );
-  SQL
+  #create_been_to_table
+  def create_been_to_table
+    create_been_to_table_cmd =  <<-SQL
+    CREATE TABLE IF NOT EXISTS been_to(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255),
+    dates VARCHAR(255),
+    rating INTEGER,
+    return BOOLEAN
+    );
+    SQL
+    create_been_to_table_cmd
+  end
+  db.execute(been_to)
 
+  #create_traveler_table
+  def create_traveler_table
+    create_table_cmd =  <<-SQL
+    CREATE TABLE IF NOT EXISTS traveler(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255),
+    age INTEGER,
+    email VARCHAR(255),
+    job VARCHAR(255),
+    birthplace VARCHAR(255),
+    passport_active BOOLEAN,
+    been_there_id INTEGER,
+    going_there_id INTEGER,
+    FOREIGN KEY (been_there_id) REFERENCES been_to(id),
+    FOREIGN KEY (going_there_id) REFERENCES yet_to(id)
+    );
+    SQL
+    create_table_cmd
+  end
   travelers = db.execute(create_table_cmd)
-  puts travelers
-  puts travelers.inspect
 
 end
 
