@@ -1,36 +1,15 @@
-#require sqlite3, faker, and other classes (...???)
-#Create Been_To class
-  #initialize
-    #readers: name, dates, rating, return
-  #create been_to table in db
-    #use string delimiter
-    #pass in instance variables
-
 require 'sqlite3'
 require 'faker'
-#require_relative 'other classes'
+#require_relative 'traveler'
 
-class Been_To
-  attr_reader :name, :dates, :rating, :return
+db = SQLite3::Database.open('travel_report.db')
 
-  def initialize
-    @name = Faker::Address.country
-    @dates = Faker::Date.backward(90)
-    @rating = Faker::Number.between(1, 5)
-    @return = Faker::Boolean.boolean
-  end
+#insert into been_to table
+insert_cmd =  <<-SQL
+INSERT INTO been_to(name, dates, rating, return_val) VALUES (?, ?, ?, ?);
+SQL
 
-  ##create_been_to_table
-  def create_been_to_table
-    create_been_to_table_cmd =  <<-SQL
-    CREATE TABLE IF NOT EXISTS been_to(
-    id INTEGER PRIMARY KEY,
-    name VARCHAR(255),
-    dates VARCHAR(255),
-    rating INTEGER,
-    return BOOLEAN
-    );
-    SQL
-    create_been_to_table_cmd
-  end
+10.times do
+db.execute(insert_cmd, [Faker::Address.country, Faker::Date.backward(10).to_s, Faker::Number.between(1, 5), Faker::Boolean.boolean.to_s])
 end
+

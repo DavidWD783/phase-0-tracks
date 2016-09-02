@@ -1,32 +1,14 @@
-#require sqlite3, faker, and other classes (...???)
-#Create Yet_To class
-  #initialize
-    #readers: name, plan_to,
-  #create been_to table in db
-    #use string delimiter
-    #pass in instance variables
-
 require 'sqlite3'
 require 'faker'
-#require_relative 'other classes'
+#require_relative 'traveler'
 
-class Yet_To
-  attr_reader :name, :plan_to
+db = SQLite3::Database.open('travel_report.db')
 
-  def initialize
-    @name = Faker::Address.country
-    @plan_to = Faker::Boolean.boolean
-  end
+#insert into been_to table
+insert_cmd =  <<-SQL
+INSERT INTO yet_to(name, plan_to) VALUES (?, ?);
+SQL
 
-  #create_yet_to_table
-  def create_yet_to_table
-    create_yet_to_table_cmd =  <<-SQL
-    CREATE TABLE IF NOT EXISTS yet_to(
-    id INTEGER PRIMARY KEY,
-    name VARCHAR(255),
-    plan_to BOOLEAN
-    );
-    SQL
-    create_yet_to_table_cmd
-  end
+10.times do
+db.execute(insert_cmd, [Faker::Address.country, Faker::Boolean.boolean.to_s])
 end
