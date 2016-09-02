@@ -1,71 +1,14 @@
-#require sqlite3, faker, and other classes (...???)
-#Create Traveler class
-  #initialize
-    #readers: name, age, email, job, birthplace, passport_active?
-  #create_database
-    #travel_report db
-  #create traveler table in db
-    #use string delimiter
-    #pass in instance variables
-
 require 'sqlite3'
 require 'faker'
-require_relative 'been_to'
-require_relative 'yet_to'
-require_relative 'insert'
 
-class Traveler
-  attr_accessor :name, :age, :email, :job, :birthplace, :passport_active
 
-  def initialize(name, age, email, job, birthplace, passport_active)
-    @name = name
-    @age = age
-    @email = email
-    @job = job
-    @birthplace = birthplace
-    @passport_active = passport_active
+class Traveler_Class
+  def initialize(start)
+    puts "Initialized"
   end
-
-  #create_database
-  db = SQLite3::Database.new('travel_report.db')
-
-  #create instance of been_to
-  been_to = Been_To.new
-
-  #create instance of yet_to
-  yet_to = Yet_To.new
-
-  #create_traveler_table
-  create_table_cmd =  <<-SQL
-  CREATE TABLE IF NOT EXISTS traveler(
-  id INTEGER PRIMARY KEY,
-  name VARCHAR(255),
-  age INTEGER,
-  email VARCHAR(255),
-  job VARCHAR(255),
-  birthplace VARCHAR(255),
-  passport_active BOOLEAN,
-  been_there_id INTEGER,
-  going_there_id INTEGER,
-  FOREIGN KEY (been_there_id) REFERENCES been_to(id),
-  FOREIGN KEY (going_there_id) REFERENCES yet_to(id)
-  );
-  SQL
-  create_table_cmd
-
-  #create all tables
-  travelers = db.execute(create_table_cmd)
-  db.execute(been_to.create_been_to_table)
-  db.execute(yet_to.create_yet_to_table)
-
-  #insert into traveler table
-  db = SQLite3::Database.open('travel_report.db')
-  insert_cmd = <<-SQ
-    INSERT INTO traveler(name, age, email, job, birthplace, passport_active) VALUES (?, ?, ?, ?, ?, ?)
-    SQ
-    db.execute(insert_cmd, [@name, @age, @email, @job, @birthplace, @passport_active])
-
-end
+##insert into traveler table
+#open database
+db = SQLite3::Database.open('travel_report.db')
 
 ## User Interface ##
 puts "What is your full name?"
@@ -91,11 +34,17 @@ else
   passport_active = "false"
 end
 
+#Insert into traveler table
+insert_cmd = <<-SQ
+INSERT INTO traveler(name, age, email, job, birthplace, passport_active) VALUES (?, ?, ?, ?, ?, ?);
+SQ
+db.execute(insert_cmd, [name, age, email, job, birthplace, passport_active])
 
-## Driver Code ##
-#create instance of Traveler
-traveler = Traveler.new(name, age, email, job, birthplace, passport_active)
-
-#create insert instance to add items to tables
-
-
+#Insert random data to populate traveler table
+10.times do
+  insert_cmd = <<-SQ
+  INSERT INTO traveler(name, age, email, job, birthplace, passport_active) VALUES (?, ?, ?, ?, ?, ?);
+  SQ
+  db.execute(insert_cmd, [Faker::Name.name, Faker::Number.between(30, 70), Faker::Internet.email, Faker::Commerce.department, Faker::Address.country, Faker::Boolean.boolean.to_s])
+end
+end
