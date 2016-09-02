@@ -8,11 +8,15 @@
 require 'sqlite3'
 require 'faker'
 
+class Database_Create
+
+  def initialize(start)
+    puts "Initialized"
+  end
 #create_database travel_report.db
 db = SQLite3::Database.new('travel_report.db')
 
 #create been_to table
-db = SQLite3::Database.open('travel_report.db')
 been_to_cmd =  <<-SQL
 CREATE TABLE IF NOT EXISTS been_to(
 id INTEGER PRIMARY KEY,
@@ -25,7 +29,6 @@ SQL
 db.execute(been_to_cmd)
 
 #create yet_to table
-db = SQLite3::Database.open('travel_report.db')
 yet_to_cmd =  <<-SQL
 CREATE TABLE IF NOT EXISTS yet_to(
 id INTEGER PRIMARY KEY,
@@ -35,7 +38,6 @@ SQL
 db.execute(yet_to_cmd)
 
 #create_traveler_table
-db = SQLite3::Database.open('travel_report.db')
 create_table_cmd =  <<-SQL
 CREATE TABLE IF NOT EXISTS traveler(
 id INTEGER PRIMARY KEY,
@@ -50,11 +52,4 @@ SQL
 db.execute(create_table_cmd)
 
 
-
-
-=begin
-been_there_id INTEGER,
-going_there_id INTEGER,
-FOREIGN KEY (been_there_id) REFERENCES been_to(id),
-FOREIGN KEY (going_there_id) REFERENCES yet_to(id)
-=end
+end

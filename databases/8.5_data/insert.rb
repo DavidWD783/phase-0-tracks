@@ -1,12 +1,18 @@
-##insert countries to been_to table
-
 require 'sqlite3'
 require 'faker'
+require_relative 'create_database'
+require_relative 'traveler'
+require_relative 'display'
+
+class Insert
+##insert countries to been_to table
+#open database
+db = SQLite3::Database.open('travel_report.db')
 
 ## User Interface ##
-puts "Would you like to update your list of countries you have traveled to? (y/n)"
-  run_loop = gets.chomp.downcase
-while run_loop == "y"
+puts "Please update your list of countries you have visited.\n\ "
+run_loop = "y"
+while run_loop != "n"
   #get country name
   puts "Please enter the name of the country, then 'enter'."
   name = gets.chomp
@@ -20,9 +26,6 @@ while run_loop == "y"
   puts "You will go to #{name} again. (true/false)"
   return_to = gets.chomp.downcase
 
-  #open database
-  db = SQLite3::Database.open('travel_report.db')
-
   #insert traveler info into been_to
   insert_cmd =  <<-SQL
   INSERT INTO been_to(name, dates, rating, return_val) VALUES (?, ?, ?, ?);
@@ -35,9 +38,10 @@ while run_loop == "y"
   run_loop = gets.chomp.downcase
 end
 
-#display been_to table upon exiting
-db = SQLite3::Database.open('travel_report.db')
+#show final countries
+puts "Here is the list of countries we have on file that you have traveled to..."
 
+#display been_to table for reference
 dispaly_cmd = <<-CD
   SELECT * FROM been_to;
   CD
@@ -52,10 +56,6 @@ puts "Please type the countries you plan to travel to one by one.\n\Hit 'enter' 
 name = gets.chomp
 run_loop = name
 until run_loop == "done"
-
-  #open database
-  db = SQLite3::Database.open('travel_report.db')
-
   #insert traveler info into been_to
   insert_cmd =  <<-SQL
   INSERT INTO yet_to(name) VALUES (?);
@@ -68,7 +68,7 @@ until run_loop == "done"
 end
 
 #display yet_to table upon exiting
-db = SQLite3::Database.open('travel_report.db')
+puts "Here is what we have on file for you for planning to travel abroad."
 
 dispaly_cmd = <<-CD
   SELECT * FROM yet_to;
@@ -76,3 +76,6 @@ dispaly_cmd = <<-CD
 db.execute(dispaly_cmd) do |result|
   puts "ID: #{result[0]}\n\Name: #{result[1]}\n\ "
 end
+end
+
+ins = Insert.new

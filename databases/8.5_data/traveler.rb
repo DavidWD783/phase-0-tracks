@@ -1,7 +1,14 @@
 require 'sqlite3'
 require 'faker'
 
+
+class Traveler_Class
+  def initialize(start)
+    puts "Initialized"
+  end
 ##insert into traveler table
+#open database
+db = SQLite3::Database.open('travel_report.db')
 
 ## User Interface ##
 puts "What is your full name?"
@@ -28,7 +35,6 @@ else
 end
 
 #Insert into traveler table
-db = SQLite3::Database.open('travel_report.db')
 insert_cmd = <<-SQ
 INSERT INTO traveler(name, age, email, job, birthplace, passport_active) VALUES (?, ?, ?, ?, ?, ?);
 SQ
@@ -36,9 +42,9 @@ db.execute(insert_cmd, [name, age, email, job, birthplace, passport_active])
 
 #Insert random data to populate traveler table
 10.times do
-  db = SQLite3::Database.open('travel_report.db')
   insert_cmd = <<-SQ
   INSERT INTO traveler(name, age, email, job, birthplace, passport_active) VALUES (?, ?, ?, ?, ?, ?);
   SQ
   db.execute(insert_cmd, [Faker::Name.name, Faker::Number.between(30, 70), Faker::Internet.email, Faker::Commerce.department, Faker::Address.country, Faker::Boolean.boolean.to_s])
+end
 end
