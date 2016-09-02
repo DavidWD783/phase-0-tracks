@@ -1,7 +1,7 @@
 #require sqlite3, faker
 #create_database
   #travel_report db
-#create traveler table in db
+#create traveler, been_to, and yet_to tables in db
   #use string delimiter
   #pass in instance variables
 
@@ -29,8 +29,7 @@ db = SQLite3::Database.open('travel_report.db')
 yet_to_cmd =  <<-SQL
 CREATE TABLE IF NOT EXISTS yet_to(
 id INTEGER PRIMARY KEY,
-name VARCHAR(255),
-plan_to BOOLEAN
+name VARCHAR(255)
 );
 SQL
 db.execute(yet_to_cmd)
@@ -45,11 +44,7 @@ age INTEGER,
 email VARCHAR(255),
 job VARCHAR(255),
 birthplace VARCHAR(255),
-passport_active BOOLEAN,
-been_there_id INTEGER,
-going_there_id INTEGER,
-FOREIGN KEY (been_there_id) REFERENCES been_to(id),
-FOREIGN KEY (going_there_id) REFERENCES yet_to(id)
+passport_active BOOLEAN
 );
 SQL
 db.execute(create_table_cmd)
@@ -57,4 +52,9 @@ db.execute(create_table_cmd)
 
 
 
-
+=begin
+been_there_id INTEGER,
+going_there_id INTEGER,
+FOREIGN KEY (been_there_id) REFERENCES been_to(id),
+FOREIGN KEY (going_there_id) REFERENCES yet_to(id)
+=end
