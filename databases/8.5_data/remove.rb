@@ -23,12 +23,12 @@ class Remove
     puts "Traveler info:"
     puts "ID: #{result[0]}\n\Name: #{result[1]}\n\Age: #{result[2]}\n\Email: #{result[3]}\n\Occupation: #{result[4]}\n\Birthplace: #{result[5]}\n\Active Passport: #{result[6]}\n\ "
 
-  puts "Do you need to update any of your traveler information? (y/n)\n\ "
-  answer = gets.chomp
-  if answer == 'y'
-    puts "Please choose which information: 'name', 'age', 'email', 'job', 'birthplace', 'passport'\n\ "
-    information = gets.chomp.downcase
-    case information
+    puts "Do you need to update any of your traveler information? (y/n)\n\ "
+    answer = gets.chomp
+    if answer == 'y'
+      puts "Please choose which information: 'name', 'age', 'email', 'job', 'birthplace', 'passport'\n\ "
+      information = gets.chomp.downcase
+      case information
       when "name"
         puts "Please update your name: \n\ "
         name = gets.chomp
@@ -98,9 +98,9 @@ class Remove
       else
         ''
       end
-  else
-    ''
-  end
+    else
+      ''
+    end
   end
 
   #update been_to
