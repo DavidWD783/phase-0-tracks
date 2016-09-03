@@ -8,7 +8,7 @@ class Insert
 db = SQLite3::Database.open('travel_report.db')
 
 ## User Interface ##
-puts "Please update your list of countries you have visited.\n\ "
+puts "Please tell us the countries you have visited.\n\ "
 run_loop = "y"
 while run_loop != "n"
   #get country name
