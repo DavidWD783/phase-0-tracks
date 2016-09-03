@@ -5,7 +5,8 @@ class Display
 #display traveler, ask if updates needed
 db = SQLite3::Database.open('travel_report.db')
 
-puts "We process a lot of travelers.\n\Would you like to see who else we have worked with? (y/n)"
+puts "If you are planning to travel alone, we can show you who else might like a travel partner.\n\ "
+puts "Would you like to see who else we have worked with? (y/n)"
 view_directory = gets.chomp.downcase
 
 if view_directory == 'y'
@@ -14,7 +15,7 @@ if view_directory == 'y'
     SELECT * FROM traveler;
     CD
   db.execute(dispaly_cmd) do |result|
-    puts "ID: #{result[0]}\n\Name: #{result[1]}\n\Age: #{result[2]}\n\Birthplace: #{result[5]}\n\Active Passport: #{result[6]}\n\ "
+    puts "Name: #{result[1]}\n\Age: #{result[2]}\n\Birthplace: #{result[5]}\n\Active Passport: #{result[6]}\n\ "
   end
 else
   dispaly_cmd = <<-CD
@@ -22,7 +23,7 @@ else
     CD
   db.execute(dispaly_cmd) do |result|
     puts "Traveler info:\n\ "
-    puts "ID: #{result[0]}\n\Name: #{result[1]}\n\Age: #{result[2]}\n\Email: #{result[3]}\n\Occupation: #{result[4]}\n\Birthplace: #{result[5]}\n\Active Passport: #{result[6]}\n\ "
+    puts "Name: #{result[1]}\n\Age: #{result[2]}\n\Email: #{result[3]}\n\Occupation: #{result[4]}\n\Birthplace: #{result[5]}\n\Active Passport: #{result[6]}\n\ "
   end
 end
 

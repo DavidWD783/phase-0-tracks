@@ -1,8 +1,6 @@
 require 'sqlite3'
 require 'faker'
-require_relative 'create_database'
-require_relative 'traveler'
-require_relative 'display'
+
 
 class Insert
 ##insert countries to been_to table
@@ -46,7 +44,7 @@ dispaly_cmd = <<-CD
   SELECT * FROM been_to;
   CD
 db.execute(dispaly_cmd) do |result|
-  puts "ID: #{result[0]}\n\Name: #{result[1]}\n\Dates: #{result[2]}\n\Rating: #{result[3]}\n\Return_val: #{result[4]}\n\ "
+  puts "Name: #{result[1]}\n\Dates: #{result[2]}\n\Rating: #{result[3]}\n\Return_val: #{result[4]}\n\ "
 end
 
 ##insert countries into yet_to table
@@ -74,8 +72,6 @@ dispaly_cmd = <<-CD
   SELECT * FROM yet_to;
   CD
 db.execute(dispaly_cmd) do |result|
-  puts "ID: #{result[0]}\n\Name: #{result[1]}\n\ "
+  puts "Name: #{result[1]}\n\ "
 end
 end
-
-ins = Insert.new
