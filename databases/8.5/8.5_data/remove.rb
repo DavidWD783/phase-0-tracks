@@ -157,7 +157,7 @@ class Remove
 
 
   #remove from yet_to
-  def remove_from_yet_to(name)
+  def remove_from_yet_to_table(name)
     delete_cmd = <<-CMD
     DELETE FROM yet_to
     WHERE name = ?;
