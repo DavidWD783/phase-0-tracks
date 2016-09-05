@@ -1,3 +1,8 @@
+#final_ledger class
+#require all other classes
+#user interface for for all classes along with driver code
+  #method for displaying traveler data (traveler table, been_to table, yet_to table)
+
 require 'sqlite3'
 require 'faker'
 require_relative 'create_database'
@@ -8,7 +13,7 @@ require_relative 'remove'
 
 class Final_Ledger
   def initialize
-    puts "Initialized"
+    puts "Initialized final ledger."
   end
 
   #open database

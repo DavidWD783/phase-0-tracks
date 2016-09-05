@@ -1,3 +1,9 @@
+#insert class
+  #method for insert data into been_to table
+  #method for displaying been_to table
+  #method for inserting into yet_to table
+  #method for displaying yet_to table
+
 require 'sqlite3'
 require 'faker'
 
@@ -8,7 +14,7 @@ class Insert
   $db = SQLite3::Database.open('travel_report.db')
 
   def initialize
-    puts "Initialized"
+    puts "Initialized insert class."
   end
 
   #insert traveler info into been_to

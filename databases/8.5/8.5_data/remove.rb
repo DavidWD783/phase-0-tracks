@@ -1,3 +1,14 @@
+#remove class
+  #method for displaying traveler table info
+  #method for updating traveler table
+    #case statement for which data to update (name, age, email, job, birthplace, passport)
+  #method for displaying been_to table
+  #method for updating been_to table
+  #method for removing from been_to table
+  #method for displaying yet_to table
+  #method for updating yet_to table
+  #method for removing from been_to table
+
 require 'sqlite3'
 require 'faker'
 
@@ -5,7 +16,7 @@ require 'faker'
 class Remove
   #update traveler table
   def initialize
-    puts "Initialized"
+    puts "Initialized remove class."
   end
 
   #open database
@@ -109,7 +120,7 @@ class Remove
     end
   end
 
-  #update been_to table
+  #display been_to table
   def display_been_to_table
     dispaly_cmd = <<-CD
       SELECT * FROM been_to;
