@@ -1,10 +1,14 @@
+#display class
+  #methods for checking other fake alias travelers
+    #
+
 require 'sqlite3'
 require 'faker'
 
 class Display
   #display traveler, ask if updates needed
   def initialize
-    puts "Initialize"
+    puts "Initialized display class."
   end
 
   #open database

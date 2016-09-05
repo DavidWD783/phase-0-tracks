@@ -11,7 +11,7 @@ require 'faker'
 class Database_Create
 
   def initialize
-    puts "Initialized"
+    puts "Initialized database."
   end
   #create_database travel_report.db
   $db = SQLite3::Database.new('travel_report.db')

@@ -1,10 +1,14 @@
+#traveler class
+  #method to insert travler info (name, age, email, job, birthplace, passport)
+  #method for inserting random traveler data to compare using faker
+
 require 'sqlite3'
 require 'faker'
 
 
 class Traveler_Class
   def initialize
-    puts "Initialized"
+    puts "Initialized traveler class."
   end
 
   #open database
