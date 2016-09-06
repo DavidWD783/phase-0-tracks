@@ -1,0 +1,7 @@
+div {
+  background-color: orange;
+  height: 150px;
+  width: 150px;
+  border: 1px solid red;
+  position: relative
+}
