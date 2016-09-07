@@ -24,4 +24,15 @@ post '/students' do
   redirect '/'
 end
 
-# add static resources
+# create new page to link to students by id and show name
+get '/students/student_link' do
+  @students = db.execute("SELECT * FROM students")
+  erb :student_link
+end
+
+#create new page to link individual student details
+get '/students/:id' do
+  @student = db.execute("SELECT * FROM students WHERE id=?", params[:id].to_i)[0]
+  puts @student
+  erb :student_details
+end
