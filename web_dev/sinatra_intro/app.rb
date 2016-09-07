@@ -54,3 +54,14 @@ get '/students/:id/contact' do
   response << "#{student['name']}<br>"
   response << "Address:  1234 Main St. #{student['campus']}<br>"
 end
+
+#write a /great_job route that takes name as query param and says "Good job, [persons name]!"
+#if param not present, returns "Good job!"
+get '/:name/great_job' do
+  name = params[:name]
+  if name == ' '
+    "Good job!"
+  else
+    "Good job, #{name}!"
+  end
+end
