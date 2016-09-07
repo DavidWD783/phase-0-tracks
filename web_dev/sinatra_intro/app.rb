@@ -65,3 +65,14 @@ get '/:name/great_job' do
     "Good job, #{name}!"
   end
 end
+
+#write /:param_1/:param_2 route that adds two numbers (as parameters) and responds with the results
+get '/:num_1/:num_2' do
+  num_1 = params[:num_1]
+  num_2 = params[:num_2]
+  #change string params to ints, compute sum
+  num_1_i = num_1.to_i
+  num_2_i = num_2.to_i
+  sum = num_1_i + num_2_i
+  "#{num_1} + #{num_2} =  #{sum}"
+end
