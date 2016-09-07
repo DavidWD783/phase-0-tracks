@@ -69,7 +69,33 @@ post '/campus' do
   redirect '/campuses'
 end
 
+#send campuses data to campuses.erb
 get '/campuses' do
   @campuses = db.execute("SELECT * FROM campuses")
   erb :campuses
+end
+
+#create relation between students and campuses
+get '/campus_student/new' do
+  @campuses = db.execute("SELECT * FROM campuses")
+  @students = db.execute("SELECT * FROM students")
+  erb :new_campus_student
+end
+
+post '/campus_student' do
+  student = params[:students].to_i
+  campus = params[:campuses].to_i
+  db.execute("INSERT INTO campuses_students (student_id, campus_id) VALUES (?,?)", student, campus)
+  redirect "/"
+end
+
+#get route from campuses_students called allocations
+get '/allocations' do
+  SQL_ALLOCATIONS = <<-SQL
+    SELECT s.name student, c.name campus FROM campuses c, students s, campuses_students cs
+      WHERE c.id = cs.campus_id
+      AND   cs.student_id = s.id
+  SQL
+  @allocations = db.execute(SQL_ALLOCATIONS)
+  erb :allocations
 end
