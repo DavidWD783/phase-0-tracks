@@ -2,6 +2,7 @@
 <head>
   <title>Student Management System</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body>
   <h1>Student Management System</h1>
@@ -10,10 +11,19 @@
   <p>Click <a href="campus/new">here</a> to create a new campus.</p>
   <p>Click <a href="campus_student/new">here</a> to allocate students to campuses.</p>
   <p>Click <a href="allocations">here</a> to see the allocations of students to campuses.</p>
-  <ul>
+  <table class="w3-table w3-bordered w3-striped w3-card-4 w3-small">
     <% @students.each do |student| %>
-      <li><%= student['name'] %>, <%= student['age'] %></li>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Campus</th>
+    </tr>
+    <tr>
+      <td><%= student['name'] %></td>
+      <td><%= student['age'] %></td>
+      <td><%= student['campus'] %></td>
+    </tr>
     <% end %>
-  </ul>
+  </table>
 </body>
 </html>
